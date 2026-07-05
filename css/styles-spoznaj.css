@@ -1,0 +1,321 @@
+/* === RESET === */
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* === BARVNA PALETA === */
+:root {
+  --bg: #e8d8d0;
+  --txt: #1b1b1b;
+  --prim: #c94f2d;
+  --sec: #9e3a1e;
+  --acc: #d9cab3;
+  --white: #ffffff;
+  --input-bg: #e6d5cd;
+  --orange: #f47c4b;
+  --orange-hover: #e86c3d;
+  --text-dark: #3a2d2d;
+  --text-bold: #1d1d1d;
+  --font: 'Montserrat', sans-serif;
+}
+
+/* === OSNOVNI SLOG === */
+body {
+  font-family: var(--font);
+  background-color: var(--bg);
+  color: var(--txt);
+  line-height: 1.6;
+}
+a {
+  color: var(--prim);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--acc);
+}
+
+/* === HEADER === */
+/* === HEADER + NAV === */
+.site-header {
+  background-color: var(--prim);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+.logo img {
+  max-height: 60px;
+}
+.main-nav ul {
+  display: flex;
+  gap: 1.5rem;
+}
+.main-nav li {
+  position: relative;
+}
+.main-nav a {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+  padding: 0.75rem 1rem;
+  display: inline-block;
+  letter-spacing: .05em;
+  text-decoration: none;
+  font-weight: bold;
+}
+.main-nav a:hover,
+.main-nav a.active {
+  background-color: var(--orange-hover);
+  border-radius: 4px;
+  color: var(--white);
+}
+
+/* === DROPDOWN MENU === */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background-color: var(--prim);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 8px 8px;
+  z-index: 1000;
+  padding: 0.5rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s;
+}
+
+.main-nav li:hover > .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* === DROPDOWN LINKI === */
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: var(--white);
+  font-family: 'Playfair Display', serif;
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--orange-hover);
+}
+
+/* === Z-INDEX POPRAVKI === */
+.main-nav > ul > li {
+  z-index: 1;
+}
+/* === HERO SLIDER === */
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  overflow: hidden;
+}
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+.slide-content {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  max-width: 90%;
+  color: var(--txt);
+  text-align: left;
+  z-index: 1;
+}
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.7);
+  border: none;
+  padding: .5rem 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 2;
+}
+.slider-arrow.prev { left: 1rem; }
+.slider-arrow.next { right: 1rem; }
+
+.slide img.slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+
+/* === AKTIVNOSTI === */
+.aktivnosti-section {
+  padding: 4rem 1rem;
+  text-align: center;
+}
+.aktivnosti-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.aktivnosti-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.aktivnosti-card:hover {
+  transform: translateY(-6px);
+}
+.aktivnosti-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.aktivnosti-card p {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: white;
+  background-color: var(--prim);
+  padding: 1rem;
+  text-align: center;
+}
+
+/* === DOGODKI === */
+.dogodki-section {
+  padding: 4rem 1rem;
+  background-color: var(--prim);
+  color: white;
+  text-align: center;
+}
+.dogodki-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.dogodki-section .subtitle {
+  color: var(--acc);
+  margin-bottom: 2rem;
+}
+
+/* === KONTAKT === */
+.kontakt-wrapper {
+  display: flex;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background-color: rgba(140,109,90,0.85);
+  border-radius: 16px;
+  color: white;
+  flex-wrap: wrap;
+}
+.kontakt-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.kontakt-form input,
+.kontakt-form textarea {
+  padding: 1rem;
+  background-color: var(--white);
+  border: 2px solid var(--prim);
+  border-radius: 8px;
+}
+.kontakt-form button {
+  background-color: var(--prim);
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.kontakt-form button:hover {
+  background-color: var(--acc);
+  color: var(--txt);
+}
+
+/* === FOOTER === */
+.footer-banner {
+  background-color: var(--prim);
+  color: white;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+}
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.footer-col h4 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+.footer-col a {
+  color: white;
+  font-size: 0.95rem;
+}
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .main-nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .aktivnosti-grid {
+    grid-template-columns: 1fr;
+  }
+  .kontakt-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+}
