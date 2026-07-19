@@ -95,8 +95,7 @@
     </div>
   </div>
 
-  <button class="slider-arrow prev">&larr;</button>
-  <button class="slider-arrow next">&rarr;</button>
+  <button class="slider-arrow next" aria-label="Naslednja fotografija">&rarr;</button>
 </div>
 <!-- dogodki -->
 <section class="dogodki-section">
@@ -124,8 +123,6 @@
 
     
 
-    <button class="carousel-prev">‹</button>
-    <button class="carousel-next">›</button>
   </div>
 </section>
 
@@ -197,14 +194,14 @@
 </section>
 
   <!-- 5) Footer -->
-  <footer class="footer-banner">
+  <footer class="footer-banner" id="footer">
     <div class="footer-content">
       <div class="footer-col footer-visit">
         <h4>Obiščite nas</h4>
         <ul>
           <li>Kapucinski trg 25</li>
           <li>4220 Škofja Loka</li>
-          <li>t.: 00386 31 330 436</li>
+          <li><a class="footer-contact-link" href="tel:+38631330436">+386 31 330 436</a></li>
           <li><a href="mailto:info@kosirjevmlin.si">info@kosirjevmlin.si</a></li>
         </ul>
       </div>
@@ -214,8 +211,7 @@
         <a aria-label="Instagram" href="https://www.instagram.com/kosirjev_mlin_skofja_loka?igsh=bDZ5ZzZjaXpnc3p5"><i class="fab fa-instagram"></i></a>
       </div>
       <div class="footer-col footer-credit">
-        <h4>Izdelava spletne strani</h4>
-        <p>Luka Ilovar</p>
+        <h4>Koširjev mlin</h4>
         <p>Copyright 2026.</p>
       </div>
     </div>
@@ -223,8 +219,6 @@
 
  <script>
   const dogodkiSlides = document.querySelectorAll('.carousel-slide');
-  const dogodkiNextBtn = document.querySelector('.carousel-next');
-  const dogodkiPrevBtn = document.querySelector('.carousel-prev');
   let dogodkiCurrent = 0;
   let dogodkiInterval = setInterval(nextDogodek, 12000);
 
@@ -240,32 +234,11 @@
     showDogodek(dogodkiCurrent);
   }
 
-  function prevDogodek() {
-    dogodkiCurrent = (dogodkiCurrent - 1 + dogodkiSlides.length) % dogodkiSlides.length;
-    showDogodek(dogodkiCurrent);
-  }
-
-  function resetDogodekInterval() {
-    clearInterval(dogodkiInterval);
-    dogodkiInterval = setInterval(nextDogodek, 12000);
-  }
-
-  dogodkiNextBtn.addEventListener('click', () => {
-    nextDogodek();
-    resetDogodekInterval();
-  });
-
-  dogodkiPrevBtn.addEventListener('click', () => {
-    prevDogodek();
-    resetDogodekInterval();
-  });
-
   showDogodek(dogodkiCurrent);
  </script>
 <script>
   const heroSlides = document.querySelectorAll('.hero-slider .slide');
   const nextBtn = document.querySelector('.hero-slider .slider-arrow.next');
-  const prevBtn = document.querySelector('.hero-slider .slider-arrow.prev');
   let currentSlide = 0;
 
   function showSlide(index) {
@@ -277,11 +250,6 @@
 
   nextBtn.addEventListener('click', () => {
     currentSlide = (currentSlide + 1) % heroSlides.length;
-    showSlide(currentSlide);
-  });
-
-  prevBtn.addEventListener('click', () => {
-    currentSlide = (currentSlide - 1 + heroSlides.length) % heroSlides.length;
     showSlide(currentSlide);
   });
 </script>

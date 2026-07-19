@@ -17,6 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const activeLabel = activeByPage[page];
   document.querySelectorAll('.main-nav > ul > li > a').forEach((link) => {
-    link.classList.toggle('active', link.textContent.trim() === activeLabel);
+    const isActive = link.textContent.trim() === activeLabel;
+    link.classList.toggle('active', isActive);
+    if (isActive) {
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
   });
 });
