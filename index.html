@@ -48,40 +48,40 @@
  <header class="site-header">
   <div class="header-container">
     <div class="logo">
-      <a href="index.html">
+      <a href="/">
         <img src="fotografije/logo.png" alt="Logotip">
       </a>
     </div>
     <nav class="main-nav">
       <ul>
-        <li><a href="index.html">Domov</a></li>
+        <li><a href="/">Domov</a></li>
         <li class="dropdown">
-          <a href="utrinki-dediscina.html">Spoznaj</a>
+          <a href="/utrinki-dediscina/">Spoznaj</a>
           <ul class="dropdown-menu">
-            <li><a href="utrinki-dediscina.html">Zgodba dediščine ob Selški Sori</a></li>
+            <li><a href="/utrinki-dediscina/">Zgodba dediščine ob Selški Sori</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="mlinarstvo.html">Odkrij</a>
+          <a href="/mlinarstvo/">Odkrij</a>
           <ul class="dropdown-menu">
-            <li><a href="mlinarstvo.html">Mlinarstvo</a></li>
-            <li><a href="slikar.html">Slikar Franc Košir</a></li>
-            <li><a href="arhitektura.html">Arhitekturne posebnosti</a></li>
-            <li><a href="tehnicna.html">Tehnična dediščina</a></li>
+            <li><a href="/mlinarstvo/">Mlinarstvo</a></li>
+            <li><a href="/slikar/">Slikar Franc Košir</a></li>
+            <li><a href="/arhitektura/">Arhitekturne posebnosti</a></li>
+            <li><a href="/tehnicna/">Tehnična dediščina</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="povzdviguj.html">Doživi</a>
+          <a href="/povzdviguj/">Doživi</a>
           <ul class="dropdown-menu">
-            <li><a href="povzdviguj.html">Na meščanskem vrtu</a></li>
-            <li><a href="pasjon.html">Na kapučinu pri p. Romualdu</a></li>
+            <li><a href="/povzdviguj/">Na meščanskem vrtu</a></li>
+            <li><a href="/pasjon/">Na kapučinu pri p. Romualdu</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a href="dogodki.html">Dogodki</a>
+          <a href="/dogodki/">Dogodki</a>
           <ul class="dropdown-menu">
-            <li><a href="razstava-kosir.html">Odprtje fotografske razstave</a></li>
-            <li><a href="razstava-mlin.html">Mlini na Slovenskem</a></li>
+            <li><a href="/razstava-kosir/">Odprtje fotografske razstave</a></li>
+            <li><a href="/razstava-mlin/">Mlini na Slovenskem</a></li>
           </ul>
         </li>
       </ul>
@@ -101,7 +101,7 @@
       <p class="eyebrow">Koširjevina</p>
       <h1>Spletaj zgodbe</h1>
       <p>Zgodba dediščine ob Selški Sori.</p>
-      <a href="utrinki-dediscina.html" class="btn">Več</a>
+      <a href="/utrinki-dediscina/" class="btn">Več</a>
     </div>
   </div>
 
@@ -111,7 +111,7 @@
       <p class="eyebrow">Koširjev mlin</p>
       <h1>Malen pod mostom</h1>
       <p>Ena najstarejših stavb Kapucinskega predmestja, izpričana leta 1309.</p>
-      <a href="mlinarstvo.html" class="btn">Več</a>
+      <a href="/mlinarstvo/" class="btn">Več</a>
     </div>
   </div>
 
@@ -121,7 +121,7 @@
       <p class="eyebrow">Rojstna hiša</p>
       <h1>Slikar Franc Košir</h1>
       <p>Odkrij umetnost, mlin in svetlobo Škofje Loke.</p>
-      <a href="slikar.html" class="btn">Več</a>
+      <a href="/slikar/" class="btn">Več</a>
     </div>
   </div>
 
@@ -199,37 +199,37 @@
 
     <div class="aktivnosti-grid">
       <div class="aktivnosti-card">
-        <a href="tehnicna.html">
+        <a href="/tehnicna/">
           <img src="fotografije/samostan.png" alt="Dediščina">
           <p>Tehnična dediščina</p>
         </a>
       </div>
       <div class="aktivnosti-card">
-        <a href="povzdviguj.html">
+        <a href="/povzdviguj/">
           <img src="fotografije/kofetarica.avif" alt="Kraji">
           <p>Na kapučinu</p>
         </a>
       </div>
       <div class="aktivnosti-card">
-        <a href="dogodki.html">
+        <a href="/dogodki/">
           <img src="fotografije/razstava.png" alt="Ljudje">
           <p>Dogodki</p>
         </a>
       </div>
       <div class="aktivnosti-card">
-        <a href="mlinarstvo.html">
+        <a href="/mlinarstvo/">
           <img src="fotografije/vozicek.jpg" alt="Podnebje">
           <p>Mlinarstvo</p>
         </a>
       </div>
       <div class="aktivnosti-card">
-        <a href="pasjon.html">
+        <a href="/pasjon/">
           <img src="fotografije/pasjon.jpg" alt="Lokalni produkti in spominki">
           <p>Škofjeloški pasijon</p>
         </a>
       </div>
       <div class="aktivnosti-card">
-        <a href="povzdviguj.html">
+        <a href="/povzdviguj/">
           <img src="fotografije/star vrt.png" alt="Zelena destinacija">
           <p>Meščanski vrt</p>
         </a>
@@ -284,7 +284,7 @@
     opisContainer.innerHTML = `
       <h3>${dogodkiOpisData[index].naslov}</h3>
       <p>${dogodkiOpisData[index].opis}</p>
-      <a href="${index === 0 ? 'razstava-kosir.html' : 'razstava-mlin.html'}" class="btn">VEČ</a>
+      <a href="${index === 0 ? '/razstava-kosir/' : '/razstava-mlin/'}" class="btn">VEČ</a>
     `;
   }
 
