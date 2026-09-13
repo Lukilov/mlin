@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+const setupNavigation = () => {
   const page = window.location.pathname.split('/').filter(Boolean).pop() || 'index';
   const activeByPage = {
     'index': 'Domov',
@@ -34,4 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const match = href.match(/^([^?#]+)\.html([?#].*)?$/);
     if (match) link.setAttribute('href', `${match[1]}/${match[2] || ''}`);
   });
-});
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', setupNavigation);
+} else {
+  setupNavigation();
+}
