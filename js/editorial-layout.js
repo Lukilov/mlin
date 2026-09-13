@@ -1,22 +1,22 @@
 (() => {
-  const page = window.location.pathname.split('/').pop() || '';
+  const page = window.location.pathname.split('/').filter(Boolean).pop() || 'index';
 
-  if (page === 'dogodki.html') {
+  if (page === 'dogodki') {
     document.body.classList.add('editorial-events');
     return;
   }
 
   const labels = {
-    'utrinki-dediscina.html': 'Spoznaj',
-    'zgodovina.html': 'Spoznaj',
-    'mlinarstvo.html': 'Odkrij',
-    'slikar.html': 'Odkrij',
-    'arhitektura.html': 'Odkrij',
-    'tehnicna.html': 'Odkrij',
-    'povzdviguj.html': 'Doživi',
-    'pasjon.html': 'Doživi',
-    'razstava-kosir.html': 'Dogodki',
-    'razstava-mlin.html': 'Dogodki'
+    'utrinki-dediscina': 'Spoznaj',
+    'zgodovina': 'Spoznaj',
+    'mlinarstvo': 'Odkrij',
+    'slikar': 'Odkrij',
+    'arhitektura': 'Odkrij',
+    'tehnicna': 'Odkrij',
+    'povzdviguj': 'Doživi',
+    'pasjon': 'Doživi',
+    'razstava-kosir': 'Dogodki',
+    'razstava-mlin': 'Dogodki'
   };
 
   const source = document.querySelector([
