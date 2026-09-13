@@ -51,11 +51,43 @@ const setupNavigation = () => {
     toggle.innerHTML = '<span></span><span></span><span></span>';
     headerContainer.insertBefore(toggle, navigation);
 
+    navigation.querySelectorAll('.dropdown').forEach((dropdown, index) => {
+      const parentLink = dropdown.querySelector(':scope > a');
+      const submenu = dropdown.querySelector(':scope > .dropdown-menu');
+      if (!parentLink || !submenu || dropdown.querySelector(':scope > .submenu-toggle')) return;
+
+      submenu.id ||= `mobile-submenu-${index + 1}`;
+      const submenuToggle = document.createElement('button');
+      submenuToggle.className = 'submenu-toggle';
+      submenuToggle.type = 'button';
+      submenuToggle.setAttribute('aria-controls', submenu.id);
+      submenuToggle.setAttribute('aria-expanded', 'false');
+      submenuToggle.setAttribute('aria-label', `Odpri podmeni ${parentLink.textContent.trim()}`);
+      submenuToggle.innerHTML = '<span aria-hidden="true"></span>';
+      parentLink.insertAdjacentElement('afterend', submenuToggle);
+
+      submenuToggle.addEventListener('click', () => {
+        const isOpen = !dropdown.classList.contains('submenu-open');
+        navigation.querySelectorAll('.dropdown.submenu-open').forEach((openDropdown) => {
+          if (openDropdown === dropdown) return;
+          openDropdown.classList.remove('submenu-open');
+          openDropdown.querySelector(':scope > .submenu-toggle')?.setAttribute('aria-expanded', 'false');
+        });
+        dropdown.classList.toggle('submenu-open', isOpen);
+        submenuToggle.setAttribute('aria-expanded', String(isOpen));
+        submenuToggle.setAttribute('aria-label', `${isOpen ? 'Zapri' : 'Odpri'} podmeni ${parentLink.textContent.trim()}`);
+      });
+    });
+
     const closeMenu = () => {
       navigation.classList.remove('is-open');
       toggle.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-label', 'Odpri navigacijski meni');
+      navigation.querySelectorAll('.dropdown.submenu-open').forEach((dropdown) => {
+        dropdown.classList.remove('submenu-open');
+        dropdown.querySelector(':scope > .submenu-toggle')?.setAttribute('aria-expanded', 'false');
+      });
     };
 
     toggle.addEventListener('click', () => {

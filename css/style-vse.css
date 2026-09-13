@@ -2006,6 +2006,10 @@ a.btn:hover,
   display: none;
 }
 
+.submenu-toggle {
+  display: none;
+}
+
 @media (max-width: 768px) {
   html {
     font-size: 100%;
@@ -2116,6 +2120,12 @@ a.btn:hover,
     border-bottom: 1px solid var(--line);
   }
 
+  .main-nav > ul > li.dropdown {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 48px;
+    align-items: start;
+  }
+
   .main-nav > ul > li > a,
   .main-nav > ul > li.dropdown > a {
     display: block;
@@ -2126,7 +2136,7 @@ a.btn:hover,
   }
 
   .main-nav > ul > li.dropdown > a::before {
-    right: 0.65rem;
+    display: none;
   }
 
   .main-nav > ul > li > a::after {
@@ -2136,8 +2146,9 @@ a.btn:hover,
   }
 
   .main-nav .dropdown-menu {
+    grid-column: 1 / -1;
     position: static;
-    display: flex;
+    display: none !important;
     flex-direction: column;
     width: 100%;
     min-width: 0;
@@ -2148,6 +2159,36 @@ a.btn:hover,
     opacity: 1;
     visibility: visible;
     transform: none;
+  }
+
+  .main-nav .dropdown.submenu-open > .dropdown-menu {
+    display: flex !important;
+  }
+
+  .submenu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--navy);
+    cursor: pointer;
+  }
+
+  .submenu-toggle span {
+    width: 8px;
+    height: 8px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform 0.2s ease;
+  }
+
+  .submenu-toggle[aria-expanded="true"] span {
+    transform: translateY(2px) rotate(225deg);
   }
 
   .main-nav .dropdown-menu a {
@@ -2280,6 +2321,14 @@ a.btn:hover,
 
   .editorial-events .carousel-text {
     padding: 1.5rem !important;
+  }
+
+  .editorial-events .carousel-track,
+  .editorial-events .carousel-slide,
+  .editorial-events .carousel-image,
+  .editorial-events .carousel-text {
+    width: 100% !important;
+    min-width: 0 !important;
   }
 
   .footer-banner {
