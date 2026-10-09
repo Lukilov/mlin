@@ -16,7 +16,8 @@
     'povzdviguj': 'Doživi',
     'pasjon': 'Doživi',
     'razstava-kosir': 'Dogodki',
-    'razstava-mlin': 'Dogodki'
+    'razstava-mlin': 'Dogodki',
+    'vrt-spominov': 'Dogodki'
   };
 
   const source = document.querySelector([

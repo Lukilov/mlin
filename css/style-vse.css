@@ -1428,6 +1428,13 @@ a.btn:hover,
   box-shadow: none;
 }
 
+/* Visok plakat novega dogodka naj bo na domači strani nekoliko bolj izrazit. */
+@media (min-width: 769px) {
+  .middle-dogodki .carousel-image img.event-poster {
+    max-height: 640px;
+  }
+}
+
 .right-dogodki .carousel-text {
   padding: 0;
 }
@@ -2385,6 +2392,22 @@ a.btn:hover,
   padding: 0 !important;
   overflow: hidden;
   background: var(--paper);
+}
+
+/* Skrij izvorno postavitev do konca preureditve v uvodno animacijo.
+   S tem preprečimo kratek preskok vsebine ob odpiranju podstrani iz menija. */
+@supports selector(body:has(*)) {
+  body:has(.section-utrinki) .section-utrinki .utrinki-text:not(.editorial-content),
+  body:has(.section-zgodovina) .section-zgodovina .zgodovina-text:not(.editorial-content),
+  body:has(.section-pasjon) .section-pasjon .container:not(.editorial-content),
+  body:has(section.zgodovina-text) > section.zgodovina-text:not(.editorial-content),
+  body:has(.dogodek-kosir) > .dogodek-kosir:not(.editorial-content) {
+    visibility: hidden;
+  }
+
+  body:has(.story-experience) .story-experience {
+    visibility: visible;
+  }
 }
 
 .editorial-masthead {

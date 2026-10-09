@@ -1,12 +1,24 @@
 ---
 ---
 
+<script>
+  if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
+    const removeLiveServerFrontMatter = () => {
+      document.body?.childNodes.forEach((node) => {
+        if (node.nodeType === Node.TEXT_NODE && /^\s*---[\s\S]*---\s*$/.test(node.textContent)) node.remove();
+      });
+    };
+    removeLiveServerFrontMatter();
+    document.addEventListener('DOMContentLoaded', removeLiveServerFrontMatter);
+  }
+</script>
+
 <!DOCTYPE html>
 <html lang="sl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <base href="{{ site.baseurl }}/">
+  <base href="/">
   <meta name="description" content="Obišči Koširjevo domačijo – spoznaj zgodovino mlinarstva, umetnost slikarja Franca Koširja in doživi srednjeveško Škofjo Loko.">
   <title>Koširjeva domačija</title>
 
@@ -85,6 +97,7 @@
           <ul class="dropdown-menu">
             <li><a href="/razstava-kosir/">Odprtje fotografske razstave</a></li>
             <li><a href="/razstava-mlin/">Mlini na Slovenskem</a></li>
+            <li><a href="/vrt-spominov/">Vrt spominov skozi čas</a></li>
           </ul>
         </li>
       </ul>
@@ -163,7 +176,7 @@
 
         <div class="carousel-slide">
           <div class="carousel-image">
-            <img src="fotografije/plakat2.png" alt="Vrt spominov skozi čas – V objemu Koširjevega mlina">
+            <img class="event-poster" src="fotografije/plakat2.png" alt="Vrt spominov skozi čas – V objemu Koširjevega mlina">
           </div>
         </div>
       </div>
@@ -273,7 +286,7 @@
 
  <script>
   const dogodkiSlides = document.querySelectorAll('.carousel-slides .carousel-slide');
-  let dogodkiCurrent = 0;
+  let dogodkiCurrent = 2;
   let dogodkiInterval = setInterval(nextDogodek, 12000);
   let dogodkiTransitionTimer;
 

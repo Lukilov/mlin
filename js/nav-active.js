@@ -12,7 +12,8 @@ const setupNavigation = () => {
     'pasjon': 'Doživi',
     'dogodki': 'Dogodki',
     'razstava-kosir': 'Dogodki',
-    'razstava-mlin': 'Dogodki'
+    'razstava-mlin': 'Dogodki',
+    'vrt-spominov': 'Dogodki'
   };
 
   const activeLabel = activeByPage[page];
@@ -26,10 +27,19 @@ const setupNavigation = () => {
     }
   });
 
+  const isLocalServer = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+
   // GitHub Pages serves these Jekyll pages without the .html extension.
+  // Live Server serves the source .html files, so use the matching local path there.
   document.querySelectorAll('a[href]').forEach((link) => {
     const href = link.getAttribute('href');
     if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+
+    if (isLocalServer) {
+      const localMatch = href.match(/^\/([^/?#]+)\/([?#].*)?$/);
+      if (localMatch) link.setAttribute('href', `/${localMatch[1]}.html${localMatch[2] || ''}`);
+      return;
+    }
 
     const match = href.match(/^([^?#]+)\.html([?#].*)?$/);
     if (match) link.setAttribute('href', `${match[1]}/${match[2] || ''}`);
