@@ -160,6 +160,12 @@
             <img src="fotografije/mlincek.png" alt="Mlini na Slovenskem">
           </div>
         </div>
+
+        <div class="carousel-slide">
+          <div class="carousel-image">
+            <img src="fotografije/plakat2.png" alt="Vrt spominov skozi čas – V objemu Koširjevega mlina">
+          </div>
+        </div>
       </div>
     </div>
 
@@ -279,6 +285,10 @@
     {
       naslov: 'Mlini na Slovenskem – 4. 10. 2025',
       opis: 'Mlinarska dediščina odseva kulturno identiteto kraja ter prispeva arhitekturno in krajinsko vrednost okolju.'
+    },
+    {
+      naslov: 'Vrt spominov skozi čas – 29. 9. 2026',
+      opis: 'Dogodek v objemu Koširjevega mlina z gosti iz Društva razpršeni muzeji mlinov.'
     }
   ];
 
@@ -287,7 +297,7 @@
     opisContainer.innerHTML = `
       <h3>${dogodkiOpisData[index].naslov}</h3>
       <p>${dogodkiOpisData[index].opis}</p>
-      <a href="${index === 0 ? '/razstava-kosir/' : '/razstava-mlin/'}" class="btn">VEČ</a>
+      <a href="${index === 0 ? '/razstava-kosir/' : index === 1 ? '/razstava-mlin/' : '/dogodki/'}" class="btn">VEČ</a>
     `;
   }
 
