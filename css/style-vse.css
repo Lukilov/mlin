@@ -1431,7 +1431,10 @@ a.btn:hover,
 /* Visok plakat novega dogodka naj bo na domači strani nekoliko bolj izrazit. */
 @media (min-width: 769px) {
   .middle-dogodki .carousel-image img.event-poster {
-    max-height: 640px;
+    width: min(265px, 100%);
+    max-width: none;
+    height: auto;
+    max-height: 650px;
   }
 }
 
