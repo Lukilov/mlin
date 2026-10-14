@@ -328,6 +328,19 @@ a.btn:focus-visible,
   min-height: 400px;
 }
 
+@media (min-width: 1025px) {
+  .aktivnosti-grid.five-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .aktivnosti-grid.five-cards > .aktivnosti-card {
+    flex: 0 0 calc((100% - 4rem) / 3);
+  }
+}
+
 .aktivnosti-card {
   background-color: var(--white);
   border-radius: 0;
